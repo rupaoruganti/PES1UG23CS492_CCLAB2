@@ -93,15 +93,11 @@ def my_events(request: Request, user: str):
         (user,)
     ).fetchall()
 
-
-    dummy = 0
-    for _ in range(1500000):
-        dummy += 1
-
     return templates.TemplateResponse(
         "my_events.html",
         {"request": request, "events": rows, "user": user}
     )
+
 
 
 @app.get("/checkout", response_class=HTMLResponse)
